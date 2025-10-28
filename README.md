@@ -33,6 +33,7 @@ My project is an improved version of a **Spotify clone**, focusing on enhancing 
 - 🔥 **Volume Control** → Allows precise audio adjustments.
 - 🔥 **Real-time Duration Updates** → Displays accurate playback progress.
 - 🔥 **Automated Content Management** → Instantly updates song arrays throughout the app.
+- 🔥 **Like/Unlike Songs** → Save your favorite tracks with persistent localStorage, visual feedback on liked state.
 
 ---
 

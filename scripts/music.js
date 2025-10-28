@@ -47,6 +47,69 @@ let nowPlayingOpened = false;
 let isConstructed = false;
 let isMusicBarOpened = false;
 
+// Like functionality variables
+let likedSongs = new Set();
+
+// Load liked songs from localStorage
+function loadLikedSongs() {
+  const stored = localStorage.getItem("likedSongs");
+  if (stored) {
+    likedSongs = new Set(JSON.parse(stored));
+  }
+}
+
+// Save liked songs to localStorage
+function saveLikedSongs() {
+  localStorage.setItem("likedSongs", JSON.stringify([...likedSongs]));
+}
+
+// Check if current song is liked
+function isCurrentSongLiked() {
+  return likedSongs.has(playlist[crrSong]);
+}
+
+// Toggle like state for current song
+function toggleLike() {
+  const currentTrack = playlist[crrSong];
+  if (likedSongs.has(currentTrack)) {
+    likedSongs.delete(currentTrack);
+  } else {
+    likedSongs.add(currentTrack);
+  }
+  saveLikedSongs();
+  updateLikeIcon();
+}
+
+// Update like icon UI
+function updateLikeIcon() {
+  const likeIcons = document.querySelectorAll("#likeicon");
+  const isLiked = isCurrentSongLiked();
+  
+  likeIcons.forEach((icon) => {
+    if (isLiked) {
+      icon.innerText = "favorite";
+      icon.style.fontVariationSettings = "'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24";
+      icon.style.color = "#1fdf64";
+    } else {
+      icon.innerText = "favorite";
+      icon.style.fontVariationSettings = "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24";
+      icon.style.color = "#b3b3b3";
+    }
+  });
+}
+
+// Initialize like icon listeners
+function initializeLikeListeners() {
+  const likeIcons = document.querySelectorAll("#likeicon");
+  likeIcons.forEach((icon) => {
+    icon.style.cursor = "pointer";
+    icon.addEventListener("click", (evt) => {
+      evt.stopPropagation();
+      toggleLike();
+    });
+  });
+}
+
 function updatePbar() {
   pbar.forEach((bar) => {
     bar.style.width = `${(crrDuration / songDuration) * 100}%`;
@@ -211,6 +274,8 @@ function crrSongDetailsUpdate() {
       }
     }
   }
+  // Update like icon when song changes
+  updateLikeIcon();
 }
 
 
@@ -522,6 +587,9 @@ function fullScreenPlayer() {
   updateMusicBarBg();
   crrSongDetailsUpdate();
   startTouching();
+  // Re-initialize like listeners for fullscreen player
+  initializeLikeListeners();
+  updateLikeIcon();
 }
 
 songsInQueueClutter();
@@ -536,6 +604,9 @@ document.addEventListener("DOMContentLoaded", () => {
   localStorage.getItem("crrSong")?crrSong=parseInt(localStorage.getItem("crrSong")):crrSong=0;
   localStorage.getItem("crrDuration")?Audio.currentTime=parseInt(localStorage.getItem("crrDuration")):crrDuration=0;
  
+  // Load liked songs from localStorage
+  loadLikedSongs();
+  
   Audio.src = playlist[crrSong];
   Audio.volume = 0.1;
   volumeValue = Audio.volume * 100;
@@ -548,6 +619,11 @@ document.addEventListener("DOMContentLoaded", () => {
   updateNowPlayingWindow();
       cardBtnUpdate();
       updateMeta();
+      
+      // Initialize like icon listeners
+      initializeLikeListeners();
+      updateLikeIcon();
+      
       document.querySelector(".thumbnaillabel").innerText=`Playlist • ${playlist.length} songs`;
       document.getElementById("defaultsongs").addEventListener("click",()=>{
         tabUpdateForSearch();

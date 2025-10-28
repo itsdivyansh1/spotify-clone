@@ -875,6 +875,15 @@ nav img {
 #likeicon {
   margin-left: 2%;
   color: #1fdf64;
+  transition: all 0.2s ease;
+}
+
+#likeicon:hover {
+  transform: scale(1.1);
+}
+
+#likeicon:active {
+  transform: scale(0.95);
 }
 
 #controlicon-play {
