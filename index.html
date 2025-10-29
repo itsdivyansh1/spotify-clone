@@ -23,7 +23,15 @@
 <meta name="theme-color" content="#ffffff">
 <script src="https://kit.fontawesome.com/30ba74ff6e.js" crossorigin="anonymous"></script>
   <title>Spotify Clone-by Raghvendra Misra</title>
-  
+  <script>
+    // Check authentication before page loads
+    (function() {
+      const currentUser = localStorage.getItem('spotifyCurrentUser');
+      if (!currentUser) {
+        window.location.href = 'auth.html';
+      }
+    })();
+  </script>
 </head>
 
 <body >
@@ -296,7 +304,14 @@
         
       </div>
           <div class="wrapper2ndInNav">
-          
+            <div class="user-profile-btn" id="userProfileBtn">
+              <span class="material-symbols-outlined" id="userIcon">account_circle</span>
+              <span class="user-name" id="userName"></span>
+            </div>
+            <button class="logout-btn" id="logoutBtn">
+              <span class="material-symbols-outlined">logout</span>
+              <span>Log out</span>
+            </button>
           </div>
           </nav>
         <div class="tagcontainer2">
@@ -427,6 +442,7 @@
 <script src="scripts/app.js"></script>
 <script src="scripts/music.js"></script>
 <script src="scripts/navigation.js"></script>
+<script src="scripts/user-session.js"></script>
 </body>
 
 </html>

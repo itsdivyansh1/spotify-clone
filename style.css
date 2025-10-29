@@ -2773,6 +2773,190 @@ background-image: linear-gradient(to bottom,#1F1F1F 10%, transparent);
   display: initial;
 }
 
+/* User Profile Section Styles */
+.user-profile-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.4vw;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 0.3vw 0.8vw;
+  border-radius: 1.5vw;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  height: 2.2vw;
+}
+
+.user-profile-btn:hover {
+  background-color: rgba(40, 40, 40, 0.9);
+  border-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.02);
+}
+
+.user-profile-btn #userIcon {
+  font-size: 1.6vw;
+  color: #1ed760;
+}
+
+.user-profile-btn .user-name {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95vw;
+  max-width: 8vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5vw);
+  right: 0;
+  background-color: #282828;
+  border-radius: 0.4vw;
+  box-shadow: 0 16px 24px rgba(0, 0, 0, 0.3), 0 6px 8px rgba(0, 0, 0, 0.2);
+  min-width: 100%;
+  z-index: 1000;
+  animation: dropdownSlide 0.2s ease;
+  display: none;
+}
+
+.user-dropdown.hidden {
+  display: none !important;
+}
+
+.user-dropdown:not(.hidden) {
+  display: block;
+}
+
+@keyframes dropdownSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  padding: 0.6vw 1vw;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 0.9vw;
+  font-weight: 600;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-item:first-child {
+  border-radius: 0.4vw 0.4vw 0 0;
+}
+
+.dropdown-item:last-child {
+  border-radius: 0 0 0.4vw 0.4vw;
+}
+
+.dropdown-item span.material-symbols-outlined {
+  font-size: 1.2vw;
+  color: #b3b3b3;
+}
+
+.dropdown-item:hover span.material-symbols-outlined {
+  color: #1ed760;
+}
+
+/* Logout Button Styles */
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4vw;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 0.3vw 0.8vw;
+  border-radius: 1.5vw;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  height: 2.2vw;
+  color: #ffffff;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 0.95vw;
+}
+
+.logout-btn:hover {
+  background-color: rgba(40, 40, 40, 0.9);
+  border-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.02);
+}
+
+.logout-btn span.material-symbols-outlined {
+  font-size: 1.2vw;
+  color: #b3b3b3;
+}
+
+.logout-btn:hover span.material-symbols-outlined {
+  color: #1ed760;
+}
+
+.wrapper2ndInNav {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+}
+
+/* Mobile responsive styles for user profile */
+@media (max-width: 768px) {
+  .user-profile-btn {
+    padding: 1.5vw 3vw;
+    border-radius: 5vw;
+  }
+  
+  .user-profile-btn #userIcon {
+    font-size: 6vw;
+  }
+  
+  .user-profile-btn .user-name {
+    font-size: 3.5vw;
+    max-width: 25vw;
+  }
+  
+  .logout-btn {
+    padding: 1.5vw 3vw;
+    border-radius: 5vw;
+    height: auto;
+    font-size: 3.5vw;
+    gap: 2vw;
+  }
+  
+  .logout-btn span.material-symbols-outlined {
+    font-size: 5vw;
+  }
+  
+  .user-dropdown {
+    min-width: 35vw;
+    border-radius: 2vw;
+  }
+  
+  .dropdown-item {
+    padding: 3vw 4vw;
+    font-size: 3.5vw;
+    gap: 3vw;
+  }
+  
+  .dropdown-item span.material-symbols-outlined {
+    font-size: 5vw;
+  }
+}
+
 
 
 
