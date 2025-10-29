@@ -16,12 +16,12 @@ let crrSongThumb = document
   .querySelector(".main-window-playlist-thumb");
 const crrSongName = document.querySelector(".currentMusic-Player");
 let songCards;
-const nowPlayingWindow = document.querySelector(".nowPlayingVeiw");
+const nowPlayingWindow = document.querySelector(".nowPlayingView");
 const nowPlayingImage = document.querySelector(".nowPlayingMainImg");
 const nowPlayingSongName = document.querySelector(".nowPlayingSongName");
 const nowPlayingSongArtist = document.querySelector(".nowPlayingSongArtist");
 const inQueueSongsCont = document.querySelector(".inQueueSongs");
-const nowPlayingVeiwBtn = document.querySelector("#sideControls-veiw");
+const nowPlayingViewBtn = document.querySelector("#sideControls-view");
 let wrapperForMusicBar = document.querySelector(".wrapperForMusicBar");
 
 const initialWindowWidth = window.innerWidth;
@@ -452,7 +452,7 @@ function musicBarWrapperConstruct(isConstructed) {
       .querySelector(".maincontainer")
       .insertBefore(
         wrapperForMusicBar,
-        document.querySelector(".nowPlayingVeiw")
+        document.querySelector(".nowPlayingView")
       );
       hamburger.classList.add("material-symbols-rounded");
       hamburger.setAttribute("id","hamburger");
@@ -754,12 +754,12 @@ songCards.forEach((card, idx) => {
 });
 
 
-nowPlayingVeiwBtn.addEventListener("click", () => {
+nowPlayingViewBtn.addEventListener("click", () => {
   if (!nowPlayingOpened) {
     nowPlayingWindow.style.transform = "translate(0 ,0%)";
     nowPlayingOpened = !nowPlayingOpened;
-    nowPlayingVeiwBtn.style.color = "#1ED760";
-    nowPlayingVeiwBtn.classList.add("NowPlayingVeiwBtn");
+    nowPlayingViewBtn.style.color = "#1ED760";
+    nowPlayingViewBtn.classList.add("NowPlayingViewBtn");
     if(document.querySelector(".tippy-arrow")){
       tooltip.hide();
     }
@@ -774,8 +774,8 @@ nowPlayingVeiwBtn.addEventListener("click", () => {
     nowPlayingWindow.style.transform = "translate(0 ,100%)";
     console.log("listened");
     nowPlayingOpened = !nowPlayingOpened;
-    nowPlayingVeiwBtn.style.color = "#ffffff";
-    nowPlayingVeiwBtn.classList.remove("NowPlayingVeiwBtn");
+    nowPlayingViewBtn.style.color = "#ffffff";
+    nowPlayingViewBtn.classList.remove("NowPlayingViewBtn");
     let isSidebarCollapsed=localStorage.getItem("isSidebarCollapsed")?localStorage.getItem("isSidebarCollapsed"):"false";
     if(isSidebarCollapsed=="false"){
     mainWindow.style.width="75vw";
@@ -804,9 +804,9 @@ nowPlayingSongs.forEach((queueSong, idx) => {
 
 document.getElementById("nowPlayingClose").addEventListener("click", () => {
   nowPlayingWindow.style.transform = "translate(0 ,100%)";
-  nowPlayingVeiwBtn.style.color = "#ffffff";
+  nowPlayingViewBtn.style.color = "#ffffff";
   nowPlayingOpened = !nowPlayingOpened;
-  nowPlayingVeiwBtn.classList.remove("NowPlayingVeiwBtn");
+  nowPlayingViewBtn.classList.remove("NowPlayingViewBtn");
   if(!openedInMobile){
     let isSidebarCollapsed=localStorage.getItem("isSidebarCollapsed")?localStorage.getItem("isSidebarCollapsed"):"false";
 
