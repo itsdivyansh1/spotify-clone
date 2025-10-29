@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="apple-touch-icon" sizes="180x180" href="meta/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="meta/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="meta/favicon-16x16.png">
+  <link rel="stylesheet" href="auth.css" />
+  <title>Login - Spotify Clone</title>
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-header">
+      <img class="logo" src="meta/logo.png" alt="Spotify Logo">
+    </div>
+    
+    <div class="auth-content">
+      <!-- Login Form -->
+      <div class="auth-form" id="loginForm">
+        <h1>Log in to Spotify</h1>
+        
+        <div class="input-group">
+          <label for="loginEmail">Email or username</label>
+          <input type="text" id="loginEmail" placeholder="Email or username" autocomplete="email" />
+          <span class="error-message" id="loginEmailError"></span>
+        </div>
+        
+        <div class="input-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password" />
+          <span class="error-message" id="loginPasswordError"></span>
+        </div>
+        
+        <div class="remember-me">
+          <label class="checkbox-container">
+            <input type="checkbox" id="rememberMe" />
+            <span class="checkmark"></span>
+            Remember me
+          </label>
+        </div>
+        
+        <button class="auth-button" id="loginButton">Log In</button>
+        
+        <div class="divider">
+          <span>OR</span>
+        </div>
+        
+        <p class="switch-form">
+          Don't have an account? <a href="#" id="showSignup">Sign up for Spotify</a>
+        </p>
+      </div>
+      
+      <!-- Signup Form -->
+      <div class="auth-form hidden" id="signupForm">
+        <h1>Sign up for free to start listening</h1>
+        
+        <div class="input-group">
+          <label for="signupEmail">Email address</label>
+          <input type="email" id="signupEmail" placeholder="name@domain.com" autocomplete="email" />
+          <span class="error-message" id="signupEmailError"></span>
+        </div>
+        
+        <div class="input-group">
+          <label for="signupPassword">Create password</label>
+          <input type="password" id="signupPassword" placeholder="Create a password" autocomplete="new-password" />
+          <span class="error-message" id="signupPasswordError"></span>
+        </div>
+        
+        <div class="input-group">
+          <label for="signupConfirmPassword">Confirm password</label>
+          <input type="password" id="signupConfirmPassword" placeholder="Confirm password" autocomplete="new-password" />
+          <span class="error-message" id="signupConfirmPasswordError"></span>
+        </div>
+        
+        <div class="input-group">
+          <label for="signupName">What should we call you?</label>
+          <input type="text" id="signupName" placeholder="Enter a profile name" autocomplete="name" />
+          <span class="helper-text">This appears on your profile.</span>
+          <span class="error-message" id="signupNameError"></span>
+        </div>
+        
+        <button class="auth-button" id="signupButton">Sign Up</button>
+        
+        <div class="divider">
+          <span>OR</span>
+        </div>
+        
+        <p class="switch-form">
+          Already have an account? <a href="#" id="showLogin">Log in here</a>
+        </p>
+      </div>
+    </div>
+    
+    <div class="auth-footer">
+      <p>This is a demo authentication system. Your data is stored locally in your browser.</p>
+    </div>
+  </div>
+  
+  <script src="scripts/auth.js"></script>
+</body>
+</html>
